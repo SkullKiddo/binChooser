@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
+export default function ImagesPathInputForm() {
+
+
+  const pathInputName = "inputPath"
+  const [labelText, setLabelText] = useState("label por defecto")
+
+  function getPathInputFromForm(e) {
+    // Read the form data
+    const form = e.target
+    const formData = new FormData(form)
+
+    // Or you can work with it as a plain object:
+    const formJson = Object.fromEntries(formData.entries())
+    return formJson[pathInputName]
+  }
+
+  function changeReadLabel(text){
+    setLabelText(text)
+  }
+
+  function handleSubmit(e) {
+    // Prevent the browser from reloading the page
+    e.preventDefault()
+
+    var readinput = getPathInputFromForm(e)
+
+    changeReadLabel(readinput)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <form method="post" onSubmit={handleSubmit}>
+      Text input: <input name={pathInputName} defaultValue="Some initial value" />
+      <p>Leido: {labelText}</p>
+      <button type="submit">Submit form</button>
+    </form>
   );
 }
-
-export default App;
