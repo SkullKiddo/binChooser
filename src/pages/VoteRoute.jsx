@@ -1,3 +1,3 @@
-export default function VotePage(){
+export default function App(){
     return <div className="div">Pagina de voter</div>
 }

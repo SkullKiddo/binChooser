@@ -16,8 +16,8 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './index.css';
-import HostPage from "./pages/HostPage"
-import VotePage from "./pages/VotePage"
+import HostPage from "./pages/HostRoute"
+import VotePage from "./pages/VoteRoute"
 
 export default function App() {
   return (
