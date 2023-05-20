@@ -7,11 +7,17 @@ import {
   } from "@files-ui/react";
   import * as React from "react";
 import Button from '@mui/material/Button'
+import { writeImages } from "./firebase/firebaseDatabase"
+
+
+
     
 export default function FilesInputScreen(props) {
   const [extFiles, setExtFiles] = React.useState([]);
   const [imageSrc, setImageSrc] = React.useState(undefined);
   const [videoSrc, setVideoSrc] = React.useState(undefined);
+
+  
 
 
   function createImageSourcesFromImageFiles(){
@@ -23,6 +29,7 @@ export default function FilesInputScreen(props) {
       reader.onload = () => {
         imageArray.push(reader.result)
         if(imageArray.length ===  extFiles.length){
+          writeImages(imageArray)
           props.setImagestUploadedFunct(imageArray)
         }
         // console.log("______ pushin to image array: ", reader.result)
@@ -69,6 +76,7 @@ export default function FilesInputScreen(props) {
       })
     );
   };
+  // return <button onClick={() => writeImages()}>write database</button>
   return (
     <>
       <Dropzone
