@@ -11,7 +11,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 // import { Button } from "@mui/material";
 import * as React from "react";
-import { signInWithGoogle } from "../firebase/firebaseAuth"
+import { getUserOrSignIn } from "../firebase/firebaseAuth"
 
 
 function App(){
@@ -25,7 +25,7 @@ function App(){
 
     
 
-    if(!googleUser) return <button onClick={() => signInWithGoogle(setGoogleUser)} >Sign in</button>
+    if(!googleUser) return <button onClick={() => getUserOrSignIn(setGoogleUser)} >Sign in</button>
 
     if(!matchId)
         return <FilesInputScreen imagesVoting={imagesVoting} setMatchId={setMatchId}/>

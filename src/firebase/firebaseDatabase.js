@@ -11,3 +11,10 @@ export function writeImagesToDB(images) {
     });
     return child.key
 }
+export function addVoterToMatchBD(matchId){
+    console.log("______ añadiendo voter apra match: ", matchId)
+    const votersRef = ref(database, "/matches/"+matchId+"/voters")
+    push(votersRef, {
+            name: "fakeTestVoter"
+    })
+}
