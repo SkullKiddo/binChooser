@@ -1,1 +1,1 @@
-Simple app as an excuse to play around with react
+Simple app as an excuse to play around with react and google firebase
