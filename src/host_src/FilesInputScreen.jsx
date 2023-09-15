@@ -1,20 +1,19 @@
 import {
-    Dropzone,
-    FileMosaic,
-    FullScreen,
-    ImagePreview,
-    VideoPreview
-  } from "@files-ui/react";
-  import * as React from "react";
-import Button from '@mui/material/Button'
-import { writeImagesToDB } from "./firebase/firebaseDatabase"
+  Dropzone,
+  FileMosaic,
+  FullScreen,
+  ImagePreview,
+  VideoPreview
+} from "@files-ui/react";
+import Button from '@mui/material/Button';
+import * as React from "react";
+import { writeImagesToDB } from "./host_DB";
 
 
 
     
 export default function FilesInputScreen(props) {
-  const imagesVoting = props.imagesVoting
-  const setMatchId = props.setMatchId
+  const setImages = props.setImages
   const [extFiles, setExtFiles] = React.useState([]);
   const [imageSrc, setImageSrc] = React.useState(undefined);
   const [videoSrc, setVideoSrc] = React.useState(undefined);
@@ -31,9 +30,8 @@ export default function FilesInputScreen(props) {
       reader.onload = () => {
         imageArray.push(reader.result)
         if(imageArray.length ===  extFiles.length){
-          const matchId = writeImagesToDB(imageArray)
-          imagesVoting.push(...imageArray)
-          setMatchId(matchId)
+          writeImagesToDB(imageArray)
+          setImages(imageArray)
         }
         // console.log("______ pushin to image array: ", reader.result)
       }

@@ -1,7 +1,7 @@
-import * as React from "react";
-import { getUserOrSignIn } from "../firebase/firebaseAuth"
 import { Button, Input } from "@mui/material";
-import { addVoterToMatchBD } from "./../firebase/firebaseDatabase"
+import * as React from "react";
+import { getUserOrSignIn } from "../common_src/firebaseAuth";
+import { addVoterToMatchBD } from "./vote_DB";
 
 export default function App(){
 

@@ -14,10 +14,10 @@
 
 // import React from 'react';
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HostPage from "./host_src/App";
 import './index.css';
-import HostPage from "./pages/HostRoute"
-import VotePage from "./pages/VoteRoute"
+import VotePage from "./vote_src/App";
 
 export default function App() {
   return (

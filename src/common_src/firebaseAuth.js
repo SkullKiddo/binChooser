@@ -1,5 +1,5 @@
-import { firebaseApp } from "./firebaseApp"
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { firebaseApp } from "./firebaseApp";
 
 // Initialize Firebase
 
@@ -10,7 +10,7 @@ let user
 
 
 
-export async function getUserOrSignIn(setGoogleUserHook){
+export async function getUserOrSignIn(setGoogleUserHook){  //deberia ser 2 funciones distintas, una setea hooker la otra busca y devuelve el usuario
     if(user) return user
 
     const promise = signInWithPopup(auth, provider)
@@ -22,7 +22,9 @@ export async function getUserOrSignIn(setGoogleUserHook){
         (error) => { GoogleAuthProvider.credentialFromError(error) }
     )
 
+    console.log("_____ promise before await:", promise)
     user = await promise
+    console.log("_____ user before await:", user)
 
     if(setGoogleUserHook){
         setGoogleUserHook(user)

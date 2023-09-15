@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 
-import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBkE3_tg8dkuEe80FVUge60TufldIJRn0E",
@@ -12,8 +12,7 @@ const firebaseConfig = {
     messagingSenderId: "711858650040",
     appId: "1:711858650040:web:c84e161dd7a887042eed4d",
     measurementId: "G-JZZ17XGHW1"
-  
-  };
+};
 
 
 export const firebaseApp = initializeApp(firebaseConfig);
